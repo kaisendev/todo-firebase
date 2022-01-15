@@ -1,6 +1,6 @@
 {
-  "homepage": "http://github.com/kaisendev/todo-firebase",
-  "name": "react-firebase",
+  "homepage": "http://kaisendev.github.io/todo-firebase",
+  "name": "todo-firebase",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
