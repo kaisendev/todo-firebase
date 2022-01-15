@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/kaisendev/todo-firebase.git/static/css/main.743e3262.css",
+    "main.js": "/kaisendev/todo-firebase.git/static/js/main.5ab0230f.js",
+    "index.html": "/kaisendev/todo-firebase.git/index.html",
+    "main.743e3262.css.map": "/kaisendev/todo-firebase.git/static/css/main.743e3262.css.map",
+    "main.5ab0230f.js.map": "/kaisendev/todo-firebase.git/static/js/main.5ab0230f.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.743e3262.css",
+    "static/js/main.5ab0230f.js"
+  ]
+}
