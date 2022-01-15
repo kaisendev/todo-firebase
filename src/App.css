@@ -1,38 +1,75 @@
-.App {
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+font-family:Consolas, Menlo, Monaco, Consolas, 'Courier New', monospace;
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
+background: #2c3e50;
+color: #fff;
+}
+
+.container {
   text-align: center;
+  width: 100%;
+  margin: 0 auto;
+  border-color: red;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+h1 {
+  margin-top: 3rem;
+  margin-bottom: 1rem;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+h3 {
+  margin-top: 3rem;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.addInput{
+  font-size: 1rem;
+  font-weight: bold;
+  font-family: Candara, 'Courier New', monospace;
+  margin-right: 0.2rem;
 }
 
-.App-link {
-  color: #61dafb;
+.addButton{
+  font-weight: bold;
+  font-size: 1rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+ul {
+  list-style: none;
+  margin-top: 2rem;
 }
+
+.hideElement {
+  display: none;
+}
+
+.showElement{
+  display: inline-block;
+}
+
+.todoList span{
+  margin-right: 1rem;
+  font-size: 1.2rem;
+}
+
+.todoList input {
+  margin-right: 4px;
+  font-size: 1.2rem;
+}
+
+.todoList button{
+  margin-right: 4px;
+  margin-top: 6px;
+  font-size: 1rem;
+}
+
+.todoList button:last-child{
+  margin-right: 0;
+}
+
