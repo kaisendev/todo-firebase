@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/todo-firebase/static/css/main.743e3262.css",
-    "main.js": "/todo-firebase/static/js/main.5ab0230f.js",
+    "main.js": "/todo-firebase/static/js/main.375940dc.js",
     "index.html": "/todo-firebase/index.html",
     "main.743e3262.css.map": "/todo-firebase/static/css/main.743e3262.css.map",
-    "main.5ab0230f.js.map": "/todo-firebase/static/js/main.5ab0230f.js.map"
+    "main.375940dc.js.map": "/todo-firebase/static/js/main.375940dc.js.map"
   },
   "entrypoints": [
     "static/css/main.743e3262.css",
-    "static/js/main.5ab0230f.js"
+    "static/js/main.375940dc.js"
   ]
 }
