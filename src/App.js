@@ -7,8 +7,7 @@ function App() {
   const [todos, settodos] = useState([])
   const todoCollections = collection(db, "todos-v2")
   const [name, setName] = useState('')
-  const [hide, setHide] = useState(false)
-  const [editInput, setEditInput] = useState('')
+  const [editRef, setEditRef] = useState(null)
 
   useEffect(() => {
       //const data = await getDocs(todoCollections)
@@ -22,8 +21,13 @@ function App() {
     },[])//end of useEffect
 
   const addtodo = async () => {
-      await addDoc(todoCollections, {name: name, hide})
+    if(!editRef){
+      await addDoc(todoCollections, {name: name})
       setName('')
+    }
+    else{
+      updateTodo()
+    }
   }
 
   const deleteTodo = async (id) => {
@@ -32,10 +36,11 @@ function App() {
   }
 
   const editTodo = async (id, name) => {
-    //get specific collections
-    const docRef = doc(db, "todos-v2", id)
-    await updateDoc(docRef, {hide: true})
-    setEditInput(name)
+     //get specific collections
+     const docRef = doc(db, "todos-v2", id)
+     //doc reference
+     setEditRef(docRef)
+     setName(name)
   }
 
   const cancelEdit = async (id) => {
@@ -44,11 +49,11 @@ function App() {
     await updateDoc(docRef, hideUpdate)
   }
 
-  const updateTodo = async (id) => {
-    const docRef = doc(db, "todos-v2", id)
-    const newValue = {name: editInput, hide: false}
-    await updateDoc(docRef, newValue)
-    setEditInput('')
+  const updateTodo = async () => {
+    const newValue = { name: name}
+    await updateDoc(editRef, newValue)
+    setName('')
+    setEditRef(null)
   }
 
 
@@ -56,15 +61,13 @@ function App() {
     <div className="container">
       <h1>Add Todos</h1>
       <input className='addInput' type="text" onChange={(e) => setName(e.target.value)} value={name} placeholder='name'/>
-      <button className='addButton' onClick={addtodo}>Add</button>
+      <button className='addButton' onClick={addtodo}>{ editRef ? "Update" : "Add"}</button>
       <h3>{ todos.length === 0 ? "You have no Todo's" : ""}</h3>
         <ul>
           {todos.map((todo) => (
             <li key={todo.id} className='todoList'> 
-              <span className={ todo.hide ? "hideElement" : "showElement"}>{todo.name}</span>    
-              <input className={ todo.hide ? "showElement" : "hideElement"} onChange={(e) => setEditInput(e.target.value)} value={editInput} type="text" />          
-              <button className={ todo.hide ? "hideElement" : "showElement"} onClick={ () => editTodo(todo.id, todo.name) } >Edit</button>
-              <button className={ todo.hide ? "showElement" : "hideElement"} onClick={ () => updateTodo(todo.id) } >Update</button>
+              <span>{todo.name}</span>    
+              <button onClick={ () => editTodo(todo.id, todo.name) } >Edit</button>
               <button onClick={ () => deleteTodo(todo.id) }>Delete</button>
             </li>
           ))}
